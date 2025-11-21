@@ -15,31 +15,14 @@
   margin: 0;
 }
 
-.controls-dropdown,
 .language-dropdown {
   position: relative;
 }
 
-.controls-menu,
 .language-menu {
   min-width: 180px;
 }
 
-.control-group {
-  display: flex;
-  flex-direction: column;
-}
-
-.control-placeholder {
-  padding: 1rem;
-  color: var(--text-secondary);
-  font-size: 14px;
-  line-height: 1.5;
-  text-align: center;
-  max-width: 250px;
-}
-
-.control-btn,
 .language-item {
   display: block;
   width: 100%;
@@ -53,7 +36,6 @@
   transition: background-color 0.2s ease;
 }
 
-.control-btn:hover,
 .language-item:hover {
   background-color: var(--item-hover);
 }

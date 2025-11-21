@@ -1,5 +1,5 @@
 import React from 'react';
-import { Globe, Settings } from 'lucide-react';
+import { Globe } from 'lucide-react';
 import { useLanguage, languageNames, Language } from '../contexts/LanguageContext';
 import { useAppState } from '../contexts/AppStateContext';
 import { useDropdown } from '../hooks/useDropdown';
@@ -10,7 +10,6 @@ const AppHeader: React.FC = React.memo(() => {
   const { language, setLanguage } = useLanguage();
   const { appTitle } = useAppState();
   const languageDropdown = useDropdown();
-  const controlsDropdown = useDropdown();
 
   const handleLanguageChange = (lang: Language) => {
     setLanguage(lang);
@@ -20,26 +19,6 @@ const AppHeader: React.FC = React.memo(() => {
   return (
     <div className="app-header">
       <h1 className="app-title">{appTitle}</h1>
-      
-      <Dropdown
-        isOpen={controlsDropdown.isOpen}
-        onToggle={controlsDropdown.toggle}
-        dropdownRef={controlsDropdown.dropdownRef}
-        className="controls-dropdown"
-        menuClassName="controls-menu"
-        trigger={
-          <>
-            <Settings size={18} />
-            <span>Controls</span>
-          </>
-        }
-      >
-        <div className="control-group">
-          <div className="control-placeholder">
-            Add visualization controls here like speed, zoom in/out, and so on.
-          </div>
-        </div>
-      </Dropdown>
       
       <Dropdown
         isOpen={languageDropdown.isOpen}
