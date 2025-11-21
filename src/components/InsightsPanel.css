@@ -3,12 +3,17 @@
   border-radius: 12px;
   border: 1px solid var(--border-color);
   overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  min-height: 0;
 }
 
 .insights-header {
   padding: 1rem 1.5rem;
   background-color: var(--panel-header-bg);
   border-bottom: 1px solid var(--border-color);
+  flex-shrink: 0;
 }
 
 .insights-header h3 {
@@ -23,6 +28,29 @@
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
   gap: 1rem;
+  overflow-y: auto;
+  overflow-x: hidden;
+  flex: 1;
+  min-height: 0;
+  align-content: start;
+}
+
+/* Custom scrollbar styling */
+.insights-body::-webkit-scrollbar {
+  width: 8px;
+}
+
+.insights-body::-webkit-scrollbar-track {
+  background: var(--panel-bg);
+}
+
+.insights-body::-webkit-scrollbar-thumb {
+  background: var(--border-color);
+  border-radius: 4px;
+}
+
+.insights-body::-webkit-scrollbar-thumb:hover {
+  background: var(--text-secondary);
 }
 
 .insight-card {

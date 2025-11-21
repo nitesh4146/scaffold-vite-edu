@@ -1,4 +1,5 @@
 import React from 'react';
+import { ZoomIn, ZoomOut, Move } from 'lucide-react';
 import './VisualizationViewer.css';
 
 interface VisualizationViewerProps {
@@ -18,6 +19,17 @@ const VisualizationViewer: React.FC<VisualizationViewerProps> = ({ children }) =
             <p>Visualization will appear here</p>
           </div>
         )}
+      </div>
+      <div className="zoom-controls">
+        <button className="zoom-btn" aria-label="Zoom in">
+          <ZoomIn size={20} />
+        </button>
+        <button className="zoom-btn" aria-label="Zoom out">
+          <ZoomOut size={20} />
+        </button>
+        <button className="zoom-btn" aria-label="Pan">
+          <Move size={20} />
+        </button>
       </div>
     </div>
   );

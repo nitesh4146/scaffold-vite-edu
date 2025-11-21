@@ -8,8 +8,8 @@
   max-width: 400px;
   display: flex;
   flex-direction: column;
-  height: fit-content;
-  max-height: calc(100vh - 200px);
+  height: 100%;
+  min-height: 0;
 }
 
 .sidebar-header {
@@ -31,7 +31,27 @@
 .sidebar-body {
   padding: 1rem;
   overflow-y: auto;
+  overflow-x: hidden;
   flex: 1;
+  min-height: 0;
+}
+
+/* Custom scrollbar styling */
+.sidebar-body::-webkit-scrollbar {
+  width: 8px;
+}
+
+.sidebar-body::-webkit-scrollbar-track {
+  background: var(--panel-bg);
+}
+
+.sidebar-body::-webkit-scrollbar-thumb {
+  background: var(--border-color);
+  border-radius: 4px;
+}
+
+.sidebar-body::-webkit-scrollbar-thumb:hover {
+  background: var(--text-secondary);
 }
 
 .theory-section {
