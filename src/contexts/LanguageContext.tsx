@@ -1,16 +1,8 @@
 /* eslint-disable react-refresh/only-export-components */
-import React, { createContext, useContext, useState, ReactNode } from 'react';
+import React, { createContext, useContext, useState, ReactNode, useMemo, useEffect } from 'react';
+import { Language, languageNames } from '../types';
 
-export type Language = 'en' | 'hi' | 'mr' | 'ta' | 'ml' | 'es';
-
-export const languageNames: Record<Language, string> = {
-  en: 'English',
-  hi: 'हिन्दी',
-  mr: 'मराठी',
-  ta: 'தமிழ்',
-  ml: 'മലയാളം',
-  es: 'Español',
-};
+export { languageNames, type Language };
 
 interface LanguageContextType {
   language: Language;
@@ -19,11 +11,32 @@ interface LanguageContextType {
 
 const LanguageContext = createContext<LanguageContextType | undefined>(undefined);
 
+const LANGUAGE_STORAGE_KEY = 'app-language';
+
 export const LanguageProvider: React.FC<{ children: ReactNode }> = ({ children }) => {
-  const [language, setLanguage] = useState<Language>('en');
+  // Initialize from localStorage if available
+  const [language, setLanguageState] = useState<Language>(() => {
+    const stored = localStorage.getItem(LANGUAGE_STORAGE_KEY);
+    return (stored as Language) || 'en';
+  });
+
+  // Persist to localStorage when language changes
+  useEffect(() => {
+    localStorage.setItem(LANGUAGE_STORAGE_KEY, language);
+  }, [language]);
+
+  const setLanguage = (lang: Language) => {
+    setLanguageState(lang);
+  };
+
+  // Memoize context value to prevent unnecessary re-renders
+  const value = useMemo(
+    () => ({ language, setLanguage }),
+    [language]
+  );
 
   return (
-    <LanguageContext.Provider value={{ language, setLanguage }}>
+    <LanguageContext.Provider value={value}>
       {children}
     </LanguageContext.Provider>
   );

@@ -11,7 +11,6 @@
   --button-hover: #e9ecef;
   --item-hover: #f1f3f5;
   --item-active: #e7f5ff;
-  --slider-bg: #e9ecef;
   --border-color: #dee2e6;
   --text-primary: #212529;
   --text-secondary: #6c757d;
@@ -62,8 +61,6 @@ code {
   grid-template-columns: minmax(300px, 1fr) 2fr minmax(300px, 1fr);
   gap: 1.5rem;
   padding: 1.5rem;
-  max-width: 1600px;
-  margin: 0 auto;
   width: 100%;
   overflow: hidden;
   min-height: 0; /* Important for proper grid sizing */
@@ -118,12 +115,14 @@ code {
   .right-section {
     grid-column: 1;
   }
-}
-
-/* Smooth transitions */
-.app-container,
-.app-container * {
-  transition: background-color 0.2s ease, color 0.2s ease, border-color 0.2s ease;
+  
+  .app-header {
+    padding: 0.75rem 1rem;
+  }
+  
+  .app-title {
+    font-size: 1.25rem;
+  }
 }
 
 /* Scrollbar styling */
