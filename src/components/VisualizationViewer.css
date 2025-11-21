@@ -12,12 +12,68 @@
   padding: 1.5rem;
 }
 
-.visualization-container {
-  width: 100%;
-  height: 100%;
+.flip-btn {
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
   display: flex;
   align-items: center;
   justify-content: center;
+  width: 36px;
+  height: 36px;
+  background-color: var(--button-bg);
+  border: 1px solid var(--border-color);
+  border-radius: 6px;
+  color: var(--text-primary);
+  cursor: pointer;
+  transition: all 0.2s ease;
+  z-index: 10;
+}
+
+.flip-btn:hover {
+  background-color: var(--button-hover);
+}
+
+.flip-btn:active {
+  transform: scale(0.95);
+}
+
+.visualization-flip-container {
+  width: 100%;
+  height: 100%;
+  perspective: 1000px;
+}
+
+.visualization-container {
+  width: 100%;
+  height: 100%;
+  position: relative;
+  transition: transform 0.6s;
+  transform-style: preserve-3d;
+}
+
+.visualization-container.flipped {
+  transform: rotateY(180deg);
+}
+
+.visualization-front,
+.visualization-back {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  backface-visibility: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.visualization-front {
+  transform: rotateY(0deg);
+}
+
+.visualization-back {
+  transform: rotateY(180deg);
+  background-color: var(--viewer-bg);
 }
 
 .placeholder {

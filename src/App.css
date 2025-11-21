@@ -62,8 +62,22 @@ code {
   gap: 1.5rem;
   padding: 1.5rem;
   width: 100%;
+  height: 100vh;
   overflow: hidden;
   min-height: 0; /* Important for proper grid sizing */
+  transition: grid-template-columns 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.main-content.left-collapsed {
+  grid-template-columns: 48px 2fr minmax(300px, 1fr);
+}
+
+.main-content.right-collapsed {
+  grid-template-columns: minmax(300px, 1fr) 2fr 48px;
+}
+
+.main-content.left-collapsed.right-collapsed {
+  grid-template-columns: 48px 1fr 48px;
 }
 
 .left-section {
