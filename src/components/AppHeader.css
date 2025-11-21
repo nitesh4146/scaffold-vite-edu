@@ -1,0 +1,46 @@
+.app-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 1rem 1.5rem;
+  background-color: var(--navbar-bg);
+  border-bottom: 1px solid var(--border-color);
+  min-height: 60px;
+}
+
+.app-title {
+  font-size: 20px;
+  font-weight: 600;
+  color: var(--text-primary);
+  margin: 0;
+}
+
+.language-dropdown {
+  position: relative;
+}
+
+.language-menu {
+  min-width: 180px;
+}
+
+.language-item {
+  display: block;
+  width: 100%;
+  padding: 0.75rem 1rem;
+  text-align: left;
+  background: none;
+  border: none;
+  color: var(--text-primary);
+  font-size: 14px;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+}
+
+.language-item:hover {
+  background-color: var(--item-hover);
+}
+
+.language-item.active {
+  background-color: var(--item-active);
+  font-weight: 600;
+}

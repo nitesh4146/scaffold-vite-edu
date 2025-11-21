@@ -3,32 +3,12 @@
   border-radius: 12px;
   border: 1px solid var(--border-color);
   overflow: hidden;
-  transition: min-width 0.3s cubic-bezier(0.4, 0, 0.2, 1),
-              width 0.3s cubic-bezier(0.4, 0, 0.2, 1),
-              margin 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  transition: all 0.3s ease;
   min-width: 300px;
   display: flex;
   flex-direction: column;
   height: 100%;
   min-height: 0;
-}
-
-.left-panel.collapsed {
-  min-width: 48px;
-  width: 48px;
-  cursor: pointer;
-}
-
-.left-panel.collapsed .panel-header {
-  opacity: 0;
-  pointer-events: none;
-  transition: opacity 0.2s ease;
-}
-
-.left-panel.collapsed .panel-body {
-  opacity: 0;
-  pointer-events: none;
-  transition: opacity 0.2s ease;
 }
 
 .left-panel .panel-header {
@@ -40,36 +20,6 @@
   align-items: center;
   flex-shrink: 0;
   gap: 1rem;
-  transition: opacity 0.3s ease;
-}
-
-.left-panel .panel-header-controls {
-  display: flex;
-  align-items: center;
-  gap: 0.5rem;
-}
-
-.left-panel .collapse-btn {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  width: 28px;
-  height: 28px;
-  background-color: transparent;
-  border: 1px solid var(--border-color);
-  border-radius: 4px;
-  color: var(--text-primary);
-  cursor: pointer;
-  transition: all 0.2s ease;
-  flex-shrink: 0;
-}
-
-.left-panel .collapse-btn:hover {
-  background-color: var(--button-hover);
-}
-
-.left-panel .collapse-btn:active {
-  transform: scale(0.95);
 }
 
 .left-panel .panel-title {
@@ -109,13 +59,19 @@
   font-weight: 600;
 }
 
+.left-panel .panel-header h3 {
+  margin: 0;
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: var(--text-primary);
+}
+
 .left-panel .panel-body {
   padding: 1.5rem;
   overflow-y: auto;
   overflow-x: hidden;
   flex: 1;
   min-height: 0;
-  transition: opacity 0.3s ease;
 }
 
 /* Custom scrollbar styling */

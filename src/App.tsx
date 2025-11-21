@@ -3,20 +3,14 @@ import { AppStateProvider } from './contexts/AppStateContext';
 import VisualizationViewer from './components/VisualizationViewer';
 import LeftPanel from './components/LeftPanel';
 import RightPanel from './components/RightPanel';
-import { useState } from 'react';
 import './App.css';
 
 function AppContent() {
-  const [leftCollapsed, setLeftCollapsed] = useState(false);
-  const [rightCollapsed, setRightCollapsed] = useState(false);
-
   return (
     <div className="app-container">
-      <main 
-        className={`main-content ${leftCollapsed ? 'left-collapsed' : ''} ${rightCollapsed ? 'right-collapsed' : ''}`}
-      >
+      <main className="main-content">
         <div className="left-section">
-          <LeftPanel onCollapseChange={setLeftCollapsed} />
+          <LeftPanel />
         </div>
 
         <div className="center-section">
@@ -24,7 +18,7 @@ function AppContent() {
         </div>
 
         <div className="right-section">
-          <RightPanel onCollapseChange={setRightCollapsed} />
+          <RightPanel />
         </div>
       </main>
     </div>
