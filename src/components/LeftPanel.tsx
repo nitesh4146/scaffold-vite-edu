@@ -32,16 +32,13 @@ const LeftPanel: React.FC = React.memo(() => {
             className="navigation-dropdown"
             menuClassName="navigation-menu"
             trigger={
-              <>
-                <Menu size={18} />
-                <span>Navigate</span>
-              </>
+              <Menu size={18} />
             }
           >
             {sections.map((section, index) => (
               <button
                 key={index}
-                className="navigation-item"
+                className="navigation-item menu-item"
                 onClick={() => handleNavigationSelect(section)}
               >
                 {section}

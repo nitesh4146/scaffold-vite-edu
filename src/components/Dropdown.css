@@ -3,21 +3,7 @@
 }
 
 .dropdown-trigger {
-  display: flex;
-  align-items: center;
-  gap: 0.5rem;
-  padding: 0.5rem 1rem;
-  background-color: var(--button-bg);
-  border: 1px solid var(--border-color);
-  border-radius: 6px;
-  color: var(--button-text);
-  font-size: 14px;
-  cursor: pointer;
-  transition: background-color 0.2s ease;
-}
-
-.dropdown-trigger:hover {
-  background-color: var(--button-hover);
+  /* Uses .btn utility class styles from App.css */
 }
 
 .dropdown-menu {
@@ -27,7 +13,7 @@
   min-width: 180px;
   background-color: var(--dropdown-bg);
   border: 1px solid var(--border-color);
-  border-radius: 6px;
+  border-radius: var(--border-radius-md);
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
   z-index: 1000;
   overflow: hidden;

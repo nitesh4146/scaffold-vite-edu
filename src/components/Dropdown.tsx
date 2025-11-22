@@ -22,7 +22,7 @@ const Dropdown: React.FC<DropdownProps> = ({
 }) => {
   return (
     <div className={`dropdown ${className}`} ref={dropdownRef}>
-      <button className="dropdown-trigger" onClick={onToggle}>
+      <button className="dropdown-trigger btn" onClick={onToggle}>
         {trigger}
       </button>
       {isOpen && (

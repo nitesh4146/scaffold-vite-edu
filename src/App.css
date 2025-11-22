@@ -16,6 +16,13 @@
   --text-secondary: #6c757d;
   --button-text: #212529;
   --accent-color: #4c6ef5;
+  
+  /* Common values */
+  --transition-fast: 0.2s ease;
+  --transition-normal: 0.3s ease;
+  --border-radius-sm: 4px;
+  --border-radius-md: 6px;
+  --border-radius-lg: 12px;
 }
 
 * {
@@ -45,6 +52,83 @@ body {
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
+}
+
+/* Utility Classes */
+
+/* Button base styles */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  padding: 0.5rem 1rem;
+  background-color: var(--button-bg);
+  border: 1px solid var(--border-color);
+  border-radius: var(--border-radius-md);
+  color: var(--button-text);
+  font-size: 14px;
+  cursor: pointer;
+  transition: background-color var(--transition-fast);
+  white-space: nowrap;
+}
+
+.btn:hover {
+  background-color: var(--button-hover);
+}
+
+.btn:active {
+  transform: scale(0.95);
+}
+
+/* Menu item styles */
+.menu-item {
+  display: block;
+  width: 100%;
+  padding: 0.75rem 1rem;
+  text-align: left;
+  background: none;
+  border: none;
+  color: var(--text-primary);
+  font-size: 14px;
+  cursor: pointer;
+  transition: background-color var(--transition-fast);
+}
+
+.menu-item:hover {
+  background-color: var(--item-hover);
+}
+
+.menu-item.active {
+  background-color: var(--item-active);
+  font-weight: 600;
+}
+
+/* Placeholder styles */
+.placeholder {
+  color: var(--text-secondary);
+  font-size: 14px;
+  line-height: 1.5;
+  padding: 1rem;
+  text-align: center;
+}
+
+.placeholder.with-icon {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1rem;
+}
+
+.placeholder svg {
+  color: var(--text-secondary);
+  opacity: 0.5;
+}
+
+.placeholder p {
+  margin: 0;
+  font-size: 1rem;
+  opacity: 0.7;
 }
 
 .panel-placeholder {
