@@ -13,46 +13,38 @@
   position: relative;
 }
 
-/* Dropdown trigger button styling */
-.left-panel .dropdown-trigger {
-  display: inline-flex;
+/* Dropdown styling for navigation button */
+.left-panel .navigation-dropdown .dropdown-trigger {
+  display: flex;
   align-items: center;
-  justify-content: center;
   gap: 0.5rem;
-  padding: 0.5rem 1rem;
+  padding: 0.5rem;
   background-color: var(--button-bg);
   border: 1px solid var(--border-color);
-  border-radius: var(--border-radius-md);
+  border-radius: 6px;
   color: var(--button-text);
   font-size: 14px;
   cursor: pointer;
-  transition: background-color var(--transition-fast);
-  white-space: nowrap;
+  transition: background-color 0.2s ease;
 }
 
-.left-panel .dropdown-trigger:hover {
+.left-panel .navigation-dropdown .dropdown-trigger:hover {
   background-color: var(--button-hover);
 }
 
-.left-panel .dropdown-trigger:active {
-  transform: scale(0.95);
-}
-
-/* Dropdown menu styling */
 .left-panel .navigation-menu {
+  min-width: 180px;
   position: absolute;
   top: calc(100% + 0.5rem);
   right: 0;
-  min-width: 180px;
   background-color: var(--dropdown-bg);
   border: 1px solid var(--border-color);
-  border-radius: var(--border-radius-md);
+  border-radius: 6px;
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
   z-index: 1000;
   overflow: hidden;
 }
 
-/* Menu item styling */
 .left-panel .navigation-item {
   display: block;
   width: 100%;
@@ -63,14 +55,9 @@
   color: var(--text-primary);
   font-size: 14px;
   cursor: pointer;
-  transition: background-color var(--transition-fast);
+  transition: background-color 0.2s ease;
 }
 
 .left-panel .navigation-item:hover {
   background-color: var(--item-hover);
-}
-
-.left-panel .navigation-item.active {
-  background-color: var(--item-active);
-  font-weight: 600;
 }

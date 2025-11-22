@@ -23,13 +23,13 @@ A modern, production-ready React + TypeScript + Vite template designed for educa
 #### Pre-built Components
 - **AppHeader** - Top navigation bar with title
 - **LeftPanel** - Scrollable sidebar with navigation dropdown
-  - Navigation dropdown for quick access to sections
+  - Hamburger menu icon for quick access to sections
   - Content area for explanations, theory, and concepts
 - **RightPanel** - Scrollable sidebar for app controls and visualization settings with "Controls Panel" header
 - **VisualizationViewer** - Center panel with flip functionality
   - Front side for primary visualization
   - Back side for additional visualization or content
-  - Flip button for smooth transition between sides
+  - Flip button with label for smooth transition between sides
 - **Dropdown** - Reusable dropdown component with click-outside detection
 
 #### Layout
@@ -62,8 +62,8 @@ A modern, production-ready React + TypeScript + Vite template designed for educa
 
 ### Interactive Features
 
-- **Flippable Visualization Panel** - Smooth 3D flip transition between front and back content
-- **Navigation Dropdown** - Quick access to different sections (Section 1-5, customizable)
+- **Flippable Visualization Panel** - Smooth 3D flip transition between front and back content with labeled button
+- **Navigation Dropdown** - Hamburger menu icon providing quick access to different sections
 - **Click-Outside Detection** - Automatic dropdown closing for better UX
 - **Keyboard Accessibility** - Full keyboard navigation support
 
@@ -84,9 +84,10 @@ src/
 │   ├── AppHeader.tsx
 │   ├── Dropdown.tsx
 │   ├── LeftPanel.tsx
-│   ├── LeftPanel.css     # Left panel specific styles
+│   ├── LeftPanel.css     # Left panel specific styles including dropdown formatting
 │   ├── Panel.css         # Shared panel styles
 │   ├── RightPanel.tsx
+│   ├── RightPanel.css    # Right panel specific styles
 │   └── VisualizationViewer.tsx
 ├── contexts/            # React Context providers
 │   └── AppStateContext.tsx
@@ -253,7 +254,7 @@ Edit `src/components/VisualizationViewer.tsx` to add content to the back side:
 - 📚 Dedicated space for explanations and theory
 - 🎮 Interactive visualization area with flip capability
 - 🎛️ Separate controls area for clean UI organization
-- 🧭 Navigation system for organizing multiple topics/sections
+- 🧭 Hamburger menu navigation system for organizing multiple topics/sections
 
 ### For Developers
 - ⚡ Lightning-fast development with Vite

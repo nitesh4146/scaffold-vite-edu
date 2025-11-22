@@ -1,5 +1,6 @@
 import React from 'react';
 import './Panel.css';
+import './RightPanel.css';
 
 const RightPanel: React.FC = React.memo(() => {
   return (

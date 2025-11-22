@@ -54,11 +54,6 @@
   background: var(--text-secondary);
 }
 
-/* Panel-specific overrides */
-.right-panel .panel-header {
-  min-height: 52px;
-}
-
 /* Responsive */
 @media (max-width: 1024px) {
   .panel {

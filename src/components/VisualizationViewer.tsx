@@ -21,7 +21,7 @@ const VisualizationViewer: React.FC<VisualizationViewerProps> = React.memo(({ ch
         aria-label="Flip Panel"
         title="Flip Panel"
       >
-        <FlipHorizontal size={18} />
+        <FlipHorizontal size={20} />
         <span>Flip</span>
       </button>
       
@@ -29,7 +29,7 @@ const VisualizationViewer: React.FC<VisualizationViewerProps> = React.memo(({ ch
         <div className={`visualization-container ${isFlipped ? 'flipped' : ''}`}>
           <div className="visualization-front">
             {children || (
-              <div className="placeholder with-icon">
+              <div className="placeholder">
                 <svg width="100" height="100" viewBox="0 0 100 100" fill="none">
                   <circle cx="50" cy="50" r="40" stroke="currentColor" strokeWidth="2" />
                   <path d="M50 30 L50 50 L65 60" stroke="currentColor" strokeWidth="2" strokeLinecap="round" />

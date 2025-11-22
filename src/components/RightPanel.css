@@ -1,0 +1,4 @@
+/* RightPanel specific styles */
+.right-panel .panel-header {
+  gap: 1rem;
+}
