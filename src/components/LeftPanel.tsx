@@ -9,14 +9,15 @@ import './LeftPanel.css';
 const LeftPanel: React.FC = React.memo(() => {
   const { appTitle } = useAppState();
   const navigationDropdown = useDropdown();
+  const [currentSection, setCurrentSection] = React.useState<number>(1);
 
   const handleNavigationSelect = (section: string) => {
-    console.log(`Navigate to ${section}`);
+    const sectionNumber = parseInt(section.split(' ')[1]);
+    setCurrentSection(sectionNumber);
     navigationDropdown.close();
-    // Add your navigation logic here
   };
 
-  const sections = ['Section 1', 'Section 2', 'Section 3', 'Section 4', 'Section 5'];
+  const sections = ['Section 1', 'Section 2'];
 
   return (
     <div className="panel left-panel">
@@ -52,6 +53,8 @@ const LeftPanel: React.FC = React.memo(() => {
       
       <div className="panel-body">
         <div className="panel-placeholder">
+          Currently viewing Section {currentSection}
+          <br /><br />
           Space for explanation, theory or concepts.
         </div>
       </div>
