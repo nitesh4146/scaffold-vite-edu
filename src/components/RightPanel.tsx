@@ -10,7 +10,7 @@ const RightPanel: React.FC = React.memo(() => {
       
       <div className="panel-body">
         <div className="panel-placeholder">
-          Use this as a scrollable sidebar for required content and controls.
+          Space for app and visualization controls.
         </div>
       </div>
     </div>

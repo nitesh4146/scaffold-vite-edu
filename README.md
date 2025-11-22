@@ -1,6 +1,6 @@
 # Educational App Template
 
-A modern, production-ready React + TypeScript + Vite template designed for educational applications with interactive visualizations.
+A modern, production-ready React + TypeScript + Vite template designed for educational applications with interactive visualizations, multi-language support, and flexible content organization.
 
 ## 🎯 What This Template Provides
 
@@ -9,7 +9,11 @@ A modern, production-ready React + TypeScript + Vite template designed for educa
 - **React 18** with TypeScript for type-safe development
 - **Vite** for lightning-fast development and optimized production builds
 - **Multi-language Support** with persistent language selection (English, Hindi, Marathi, Tamil, Malayalam, Spanish)
-- **Responsive Layout** with three-panel design (left sidebar, center visualization, right sidebar)
+- **Three-Panel Responsive Layout** 
+  - Left sidebar for explanations, theory, and concepts
+  - Center panel with flippable visualization area
+  - Right sidebar for app and visualization controls
+- **Navigation System** with dropdown for quick section access
 - **Context API** setup for global state management
 - **Custom Hooks** for common UI patterns (dropdown management)
 - **Performance Optimizations** with React.memo and useMemo
@@ -18,17 +22,23 @@ A modern, production-ready React + TypeScript + Vite template designed for educa
 ### UI Components
 
 #### Pre-built Components
-- **AppHeader** - Top navigation bar with controls and language switcher
-- **LeftPanel** - Scrollable sidebar for content and controls
-- **RightPanel** - Scrollable sidebar for additional content
-- **VisualizationViewer** - Center panel for interactive visualizations
+- **AppHeader** - Top navigation bar with title and language switcher
+- **LeftPanel** - Scrollable sidebar with navigation dropdown and language selector
+  - Navigation dropdown for quick access to sections
+  - Language selector for multi-language support
+  - Content area for explanations, theory, and concepts
+- **RightPanel** - Scrollable sidebar for app controls and visualization settings
+- **VisualizationViewer** - Center panel with flip functionality
+  - Front side for primary visualization
+  - Back side for additional visualization or content
+  - Flip button for smooth transition between sides
 - **Dropdown** - Reusable dropdown component with click-outside detection
 
 #### Layout
 - Three-column responsive grid layout
-- Left sidebar: `1fr` (minimum 300px)
-- Center visualization: `2fr` (twice the width)
-- Right sidebar: `1fr` (minimum 300px)
+- Left sidebar: `1fr` (minimum 300px) - Theory & Navigation
+- Center visualization: `2fr` (twice the width) - Interactive Visualizations
+- Right sidebar: `1fr` (minimum 300px) - Controls & Settings
 - Consistent 1.5rem spacing between panels
 - Mobile-responsive with stacked layout on smaller screens
 
@@ -50,7 +60,16 @@ A modern, production-ready React + TypeScript + Vite template designed for educa
 - Scoped component styles
 - Custom scrollbar styling
 - Smooth transitions and hover effects
+- Flip animations for visualization panel
 - Mobile-first responsive design
+
+### Interactive Features
+
+- **Flippable Visualization Panel** - Smooth 3D flip transition between front and back content
+- **Navigation Dropdown** - Quick access to different sections (Section 1-5, customizable)
+- **Language Switching** - Seamless language changes with persistent selection
+- **Click-Outside Detection** - Automatic dropdown closing for better UX
+- **Keyboard Accessibility** - Full keyboard navigation support
 
 ### Developer Experience
 
@@ -59,6 +78,7 @@ A modern, production-ready React + TypeScript + Vite template designed for educa
 - **Hot Module Replacement** for instant feedback
 - **Path aliases** for cleaner imports (`@/components`, `@/contexts`, etc.)
 - **Organized folder structure** for scalability
+- **Icon library** (Lucide React) pre-configured
 
 ## 📁 Project Structure
 
@@ -128,6 +148,25 @@ export const languageNames: Record<Language, string> = {
 };
 ```
 
+### Adding or Modifying Navigation Sections
+
+Edit the `sections` array in `src/components/LeftPanel.tsx`:
+
+```typescript
+const sections = ['Section 1', 'Section 2', 'Section 3', 'Section 4', 'Section 5'];
+```
+
+Implement custom navigation logic in `handleNavigationSelect`:
+
+```typescript
+const handleNavigationSelect = (section: string) => {
+  console.log(`Navigate to ${section}`);
+  navigationDropdown.close();
+  // Add your custom navigation logic here
+  // e.g., scroll to section, change state, update visualization
+};
+```
+
 ### Customizing Colors
 
 Edit CSS variables in `src/App.css`:
@@ -141,36 +180,54 @@ Edit CSS variables in `src/App.css`:
 }
 ```
 
-### Adding Visualization Controls
+### Adding Content to Left Sidebar (Theory/Concepts)
 
-Add controls in `src/components/AppHeader.tsx` within the Controls dropdown:
-
-```tsx
-<div className="control-group">
-  <button className="control-btn" onClick={handleAction}>
-    <span>Your Control</span>
-  </button>
-</div>
-```
-
-### Adding Content to Sidebars
-
-Edit `src/components/LeftPanel.tsx` or `RightPanel.tsx`:
+Edit `src/components/LeftPanel.tsx`:
 
 ```tsx
 <div className="panel-body">
-  {/* Your content here */}
+  {/* Your explanations, theory, and concepts here */}
+  <h3>Topic Title</h3>
+  <p>Explanation content...</p>
+</div>
+```
+
+### Adding Controls to Right Sidebar
+
+Edit `src/components/RightPanel.tsx`:
+
+```tsx
+<div className="panel-body">
+  {/* Your controls and settings here */}
+  <div className="control-group">
+    <label>Control Label</label>
+    <input type="range" />
+  </div>
 </div>
 ```
 
 ### Adding Visualizations
 
-Replace the placeholder in `src/components/VisualizationViewer.tsx` or pass children:
+#### Front Side Visualization
+
+Pass your visualization as children to `VisualizationViewer`:
 
 ```tsx
 <VisualizationViewer>
-  {/* Your visualization component */}
+  <YourVisualizationComponent />
 </VisualizationViewer>
+```
+
+#### Back Side Content
+
+Edit `src/components/VisualizationViewer.tsx` to add content to the back side:
+
+```tsx
+<div className="visualization-back">
+  <div className="placeholder">
+    {/* Your additional visualization or content */}
+  </div>
+</div>
 ```
 
 ## 🛠️ Built With
@@ -185,20 +242,44 @@ Replace the placeholder in `src/components/VisualizationViewer.tsx` or pass chil
 - ✅ Component memoization for performance
 - ✅ Context value memoization to prevent unnecessary re-renders
 - ✅ Type-safe props and state
-- ✅ Accessible UI with ARIA labels
+- ✅ Accessible UI with ARIA labels and keyboard navigation
 - ✅ Responsive design patterns
 - ✅ Clean separation of concerns
 - ✅ Reusable component architecture
 - ✅ localStorage integration for user preferences
+- ✅ Click-outside detection for dropdowns
+- ✅ Smooth CSS transitions and animations
+- ✅ Custom hooks for state management
 
 ## 🎓 Perfect For
 
 - Educational simulations and visualizations
-- Physics/Math interactive demos
+- Physics/Math/Chemistry interactive demos
 - Data visualization applications
 - Learning management systems
-- Interactive tutorials
+- Interactive tutorials and courses
 - Scientific computing interfaces
+- Multi-language educational content
+- Step-by-step learning modules
+- Interactive textbooks and materials
+
+## 🚀 Key Features Summary
+
+### For Educators
+- ✨ Multi-language support out of the box
+- 📚 Dedicated space for explanations and theory
+- 🎮 Interactive visualization area with flip capability
+- 🎛️ Separate controls area for clean UI organization
+- 🧭 Navigation system for organizing multiple topics/sections
+
+### For Developers
+- ⚡ Lightning-fast development with Vite
+- 🔒 Type-safe development with TypeScript
+- 🎨 Easy theming with CSS variables
+- 📦 Pre-built reusable components
+- 🔄 Context-based state management
+- 🛠️ Custom hooks for common patterns
+- 📱 Mobile-responsive by default
 
 ## 📄 License
 

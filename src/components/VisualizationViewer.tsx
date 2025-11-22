@@ -39,7 +39,9 @@ const VisualizationViewer: React.FC<VisualizationViewerProps> = React.memo(({ ch
           </div>
           
           <div className="visualization-back">
-            {/* Blank back side */}
+            <div className="placeholder">
+              <p>Space for additional visualization or content</p>
+            </div>
           </div>
         </div>
       </div>

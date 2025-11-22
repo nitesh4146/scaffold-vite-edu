@@ -83,7 +83,7 @@ const LeftPanel: React.FC = React.memo(() => {
       
       <div className="panel-body">
         <div className="panel-placeholder">
-          Use this as a scrollable sidebar for required content and controls.
+          Space for explanation, theory or concepts.
         </div>
       </div>
     </div>
