@@ -1,4 +1,3 @@
-import { LanguageProvider } from './contexts/LanguageContext';
 import { AppStateProvider } from './contexts/AppStateContext';
 import VisualizationViewer from './components/VisualizationViewer';
 import LeftPanel from './components/LeftPanel';
@@ -27,11 +26,9 @@ function AppContent() {
 
 function App() {
   return (
-    <LanguageProvider>
-      <AppStateProvider>
-        <AppContent />
-      </AppStateProvider>
-    </LanguageProvider>
+    <AppStateProvider>
+      <AppContent />
+    </AppStateProvider>
   );
 }
 

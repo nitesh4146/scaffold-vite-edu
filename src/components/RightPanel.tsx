@@ -1,11 +1,12 @@
 import React from 'react';
+import './Panel.css';
 import './RightPanel.css';
 
 const RightPanel: React.FC = React.memo(() => {
   return (
-    <div className="right-panel">
+    <div className="panel right-panel">
       <div className="panel-header">
-        {/* Empty header bar */}
+        <h1 className="panel-title">Controls Panel</h1>
       </div>
       
       <div className="panel-body">

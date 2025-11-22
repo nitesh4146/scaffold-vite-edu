@@ -8,7 +8,6 @@ A modern, production-ready React + TypeScript + Vite template designed for educa
 
 - **React 18** with TypeScript for type-safe development
 - **Vite** for lightning-fast development and optimized production builds
-- **Multi-language Support** with persistent language selection (English, Hindi, Marathi, Tamil, Malayalam, Spanish)
 - **Three-Panel Responsive Layout** 
   - Left sidebar for explanations, theory, and concepts
   - Center panel with flippable visualization area
@@ -22,12 +21,11 @@ A modern, production-ready React + TypeScript + Vite template designed for educa
 ### UI Components
 
 #### Pre-built Components
-- **AppHeader** - Top navigation bar with title and language switcher
-- **LeftPanel** - Scrollable sidebar with navigation dropdown and language selector
+- **AppHeader** - Top navigation bar with title
+- **LeftPanel** - Scrollable sidebar with navigation dropdown
   - Navigation dropdown for quick access to sections
-  - Language selector for multi-language support
   - Content area for explanations, theory, and concepts
-- **RightPanel** - Scrollable sidebar for app controls and visualization settings
+- **RightPanel** - Scrollable sidebar for app controls and visualization settings with "Controls Panel" header
 - **VisualizationViewer** - Center panel with flip functionality
   - Front side for primary visualization
   - Back side for additional visualization or content
@@ -45,19 +43,18 @@ A modern, production-ready React + TypeScript + Vite template designed for educa
 ### State Management
 
 #### Contexts
-- **LanguageContext** - Multi-language support with localStorage persistence
 - **AppStateContext** - Global app state with memoized values
 
 #### Custom Hooks
 - **useDropdown** - Dropdown state management with click-outside detection
-- **useLanguage** - Access current language and language switcher
 - **useAppState** - Access global app state
 
 ### Styling
 
 - CSS custom properties (CSS variables) for theming
 - Consistent color scheme with light theme
-- Scoped component styles
+- Shared panel styles (Panel.css) for consistency and maintainability
+- Scoped component styles for specific features
 - Custom scrollbar styling
 - Smooth transitions and hover effects
 - Flip animations for visualization panel
@@ -67,7 +64,6 @@ A modern, production-ready React + TypeScript + Vite template designed for educa
 
 - **Flippable Visualization Panel** - Smooth 3D flip transition between front and back content
 - **Navigation Dropdown** - Quick access to different sections (Section 1-5, customizable)
-- **Language Switching** - Seamless language changes with persistent selection
 - **Click-Outside Detection** - Automatic dropdown closing for better UX
 - **Keyboard Accessibility** - Full keyboard navigation support
 
@@ -88,16 +84,19 @@ src/
 │   ├── AppHeader.tsx
 │   ├── Dropdown.tsx
 │   ├── LeftPanel.tsx
+│   ├── LeftPanel.css     # Left panel specific styles
+│   ├── Panel.css         # Shared panel styles
 │   ├── RightPanel.tsx
+│   ├── RightPanel.css    # Right panel specific styles
 │   └── VisualizationViewer.tsx
 ├── contexts/            # React Context providers
-│   ├── AppStateContext.tsx
-│   └── LanguageContext.tsx
+│   └── AppStateContext.tsx
 ├── hooks/               # Custom React hooks
 │   └── useDropdown.ts
 ├── types/               # TypeScript type definitions
 │   └── index.ts
 ├── App.tsx              # Main app component
+├── App.css              # Global styles and CSS variables
 └── main.tsx             # Application entry point
 ```
 
@@ -134,19 +133,6 @@ npm run lint
 ```
 
 ## 🎨 Customization Guide
-
-### Adding New Languages
-
-Edit `src/types/index.ts`:
-
-```typescript
-export type Language = 'en' | 'hi' | 'mr' | 'ta' | 'ml' | 'es' | 'your-lang';
-
-export const languageNames: Record<Language, string> = {
-  // ... existing languages
-  'your-lang': 'Your Language Name',
-};
-```
 
 ### Adding or Modifying Navigation Sections
 
@@ -259,14 +245,12 @@ Edit `src/components/VisualizationViewer.tsx` to add content to the back side:
 - Learning management systems
 - Interactive tutorials and courses
 - Scientific computing interfaces
-- Multi-language educational content
 - Step-by-step learning modules
 - Interactive textbooks and materials
 
 ## 🚀 Key Features Summary
 
 ### For Educators
-- ✨ Multi-language support out of the box
 - 📚 Dedicated space for explanations and theory
 - 🎮 Interactive visualization area with flip capability
 - 🎛️ Separate controls area for clean UI organization

@@ -1,21 +1,14 @@
 import React from 'react';
-import { Globe, Menu } from 'lucide-react';
-import { useLanguage, languageNames, Language } from '../contexts/LanguageContext';
+import { Menu } from 'lucide-react';
 import { useAppState } from '../contexts/AppStateContext';
 import { useDropdown } from '../hooks/useDropdown';
 import Dropdown from './Dropdown';
+import './Panel.css';
 import './LeftPanel.css';
 
 const LeftPanel: React.FC = React.memo(() => {
-  const { language, setLanguage } = useLanguage();
   const { appTitle } = useAppState();
-  const languageDropdown = useDropdown();
   const navigationDropdown = useDropdown();
-
-  const handleLanguageChange = (lang: Language) => {
-    setLanguage(lang);
-    languageDropdown.close();
-  };
 
   const handleNavigationSelect = (section: string) => {
     console.log(`Navigate to ${section}`);
@@ -26,7 +19,7 @@ const LeftPanel: React.FC = React.memo(() => {
   const sections = ['Section 1', 'Section 2', 'Section 3', 'Section 4', 'Section 5'];
 
   return (
-    <div className="left-panel">
+    <div className="panel left-panel">
       <div className="panel-header">
         <h1 className="panel-title">{appTitle}</h1>
         
@@ -51,30 +44,6 @@ const LeftPanel: React.FC = React.memo(() => {
                 onClick={() => handleNavigationSelect(section)}
               >
                 {section}
-              </button>
-            ))}
-          </Dropdown>
-
-          <Dropdown
-            isOpen={languageDropdown.isOpen}
-            onToggle={languageDropdown.toggle}
-            dropdownRef={languageDropdown.dropdownRef}
-            className="language-dropdown"
-            menuClassName="language-menu"
-            trigger={
-              <>
-                <Globe size={18} />
-                <span>{languageNames[language]}</span>
-              </>
-            }
-          >
-            {(Object.keys(languageNames) as Language[]).map((lang) => (
-              <button
-                key={lang}
-                className={`language-item ${language === lang ? 'active' : ''}`}
-                onClick={() => handleLanguageChange(lang)}
-              >
-                {languageNames[lang]}
               </button>
             ))}
           </Dropdown>
