@@ -21,7 +21,8 @@ const VisualizationViewer: React.FC<VisualizationViewerProps> = React.memo(({ ch
         aria-label="Flip Panel"
         title="Flip Panel"
       >
-        <FlipHorizontal size={20} />
+        <FlipHorizontal size={18} />
+        <span>Flip</span>
       </button>
       
       <div className="visualization-flip-container">

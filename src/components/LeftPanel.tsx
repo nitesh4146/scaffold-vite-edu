@@ -38,7 +38,7 @@ const LeftPanel: React.FC = React.memo(() => {
             {sections.map((section, index) => (
               <button
                 key={index}
-                className="navigation-item menu-item"
+                className="navigation-item"
                 onClick={() => handleNavigationSelect(section)}
               >
                 {section}
