@@ -87,7 +87,6 @@ src/
 │   ├── LeftPanel.css     # Left panel specific styles
 │   ├── Panel.css         # Shared panel styles
 │   ├── RightPanel.tsx
-│   ├── RightPanel.css    # Right panel specific styles
 │   └── VisualizationViewer.tsx
 ├── contexts/            # React Context providers
 │   └── AppStateContext.tsx
